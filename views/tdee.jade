@@ -7,6 +7,12 @@ block content
       h4 Learn about your Total Daily Energy Expenditure
       
       form(action="/tdee", method="POST")
+        div.form-group 
+          button(type="button", id="imperialBtn", class="unit-btn active", onclick="updatePlaceholders('imperial')") Imperial
+          button(type="button", id="metricBtn", class="unit-btn", onclick="updatePlaceholders('metric')") Metric
+        
+        input(type="hidden", name="unit", id="unit", value="imperial")
+        
         div.radio-group
           label(for="gender") Gender:
 
@@ -40,6 +46,22 @@ block content
         div.form-group
           input(type="submit", value="Calculate")
   script.
+    function updatePlaceholders(unit) {
+      document.getElementById('imperialBtn').classList.remove('active');
+      document.getElementById('metricBtn').classList.remove('active');
+      if (unit === 'imperial') {
+        document.getElementById('imperialBtn').classList.add('active');
+        document.getElementById('unit').value = 'imperial';
+        document.getElementById('weight').placeholder = "lbs";
+        document.getElementById('height').placeholder = "in";
+      } else {
+        document.getElementById('metricBtn').classList.add('active');
+        document.getElementById('unit').value = 'metric';
+        document.getElementById('weight').placeholder = "kg";
+        document.getElementById('height').placeholder = "cm";
+      }
+    }
+    
     document.getElementById('age').addEventListener('input', function (e) {
       if (e.target.value.length > 2) {
         e.target.value = e.target.value.slice(0, 2);
