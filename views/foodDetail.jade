@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .nutrition-container
+    h1.nutrition-title Nutrition Information for "#{food.description}"
+    ul.nutrition-list
+      li.nutrition-item
+        span.nutrition-label Calories
+        span.nutrition-value #{food.labelNutrients["calories"].value} kcal
+      li.nutrition-item
+        span.nutrition-label Fat
+        span.nutrition-value #{food.labelNutrients["fat"].value} g
+      li.nutrition-item
+        span.nutrition-label Carbohydrates
+        span.nutrition-value #{food.labelNutrients["carbohydrates"].value} g
+      li.nutrition-item
+        span.nutrition-label Protein
+        span.nutrition-value #{food.labelNutrients["protein"].value} g

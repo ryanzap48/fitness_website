@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  div.box
+    h1.search-title Search Results for "#{query}"
+    ul.food-list
+      each food in foods
+        li.food-item
+          a.food-link(href=`/food/nutrition/${food.fdcId}`) 
+            span.food-name #{food.description}
+            span.food-arrow &rarr;

@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div.box
+    h1.search-title Welcome to Food Search
+    form.search-form(action='/food/search', method='get')
+      label.search-label(for='q') Enter food item:
+      input.search-input(type='text', id='q', name='q', placeholder='Search for a food item...', required)
+      button.search-button(type='submit') Search
